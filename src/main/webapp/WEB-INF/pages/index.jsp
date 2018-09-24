@@ -32,7 +32,7 @@
         </tr>
     </c:forEach>
     <tr>
-        <th colspan = "3">Можно собрать: ${model.compCount} компуктеров</th>
+        <th colspan = "3">Можно собрать: ${model.compCount} компьютеров</th>
     </tr>
     <tr>
         <th colspan = "3">
