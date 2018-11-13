@@ -4,10 +4,6 @@ import my.internship.parts.dao.PartRepo;
 import my.internship.parts.model.Parts;
 import my.internship.parts.model.PartsModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.parser.Part;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +25,7 @@ public class PartController {
 	public String main(@PathVariable(required = false) Integer page, Model model) {
 		parts = _repository.GetParts();
 
+//Реализация пейджинации по 10 частей на странице
 		PartsModel partModel = new PartsModel();
 		int start = 0;
 		int arraySize = parts.size();
@@ -62,12 +59,14 @@ public class PartController {
 		return "index";
 	}
 
+//собираем компьютеры, есть детали без которых собрать комп невозможно в таблице Required(true)
 	int availiableComps(List<Parts> list) {
 		int amount = Integer.MAX_VALUE;
 
 		for (Parts p : list) {
 			if (p.isRequared()) {
 				amount = Math.min(amount, p.getCount());
+				//проходим по всему списку обязательных деталей и находим минимальное количество из них это и будет кол-во компов для сборки
 			}
 		}
 		return amount;

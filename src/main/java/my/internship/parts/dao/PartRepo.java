@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
 import java.sql.*;
-import java.sql.DriverManager;
-import java.util.LinkedList;
 import java.util.List;
 
+//Репозиторий получающий данные из таблицы
 @org.springframework.stereotype.Repository
 public class PartRepo {
 

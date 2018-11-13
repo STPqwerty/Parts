@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+//модель sql-таблицы со всеми ее полями
 @Entity
 public class Parts {
 
@@ -19,11 +20,9 @@ public class Parts {
     @Id
     @Column(name = "id")
     private int id;
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -32,11 +31,9 @@ public class Parts {
 
     @Column(name = "Name")
     private String name;
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -45,7 +42,6 @@ public class Parts {
 
     @Column(name = "Requared")
     private boolean requared;
-
     public boolean isRequared() {
         return requared;
     }
@@ -57,11 +53,9 @@ public class Parts {
 
     @Column(name = "Count")
     private int count;
-
     public int getCount() {
         return count;
     }
-
     public void setCount(int count) {
         this.count = count;
     }
